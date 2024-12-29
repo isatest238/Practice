@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
-public class Web_Form_Selenium_WebDriver_HandsOn {
+public class Web_Form {
     public WebDriver driver;
 
     @Test
