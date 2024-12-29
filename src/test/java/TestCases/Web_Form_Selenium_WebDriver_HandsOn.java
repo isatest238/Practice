@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
-public class WebForm_Selenium_WebDriver {
+public class Web_Form_Selenium_WebDriver_HandsOn {
     public WebDriver driver;
 
     @Test
@@ -105,9 +105,6 @@ public class WebForm_Selenium_WebDriver {
      driver.findElement(By.xpath("//button[text()='Submit']")).click();
     }
 
-
-
-
     //DropDown Selection
     public void dropDownSelectionMethod(int numar) {
         //dropdown.selectByValue(String.valueOf(numar));
@@ -122,10 +119,7 @@ public class WebForm_Selenium_WebDriver {
         }
     }
 
-     //Dropdown (datalist) -???? nu mi iese deocamdata
-
-
-    }
+}
 
 
 
