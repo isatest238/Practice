@@ -37,6 +37,7 @@ public class Navigation {
         WebElement backToIndexElement = driver.findElement(By.xpath("//a[text()='Back to index']"));
         backToIndexElement.click();
     }
+}
 
 
 
