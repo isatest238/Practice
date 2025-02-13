@@ -34,7 +34,12 @@ public class Airbnb_Menu_Homework {
         Thread.sleep(2000);
         meniuElement.click();
 
-
+        Thread.sleep(2000);
+        String expectedURL = "https://www.airbnb.ie/?refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2025-03-01&monthly_length=3&monthly_end_date=2025-06-01&price_filter_input_type=0&channel=EXPLORE&category_tag=Tag%3A8225&search_type=category_change";
+        //String expectedURL = "https://www.airbnb.ie/?refinement_paths%5B%5D=%2Fhomes&search_mode=flex_destinations_search&flexible_trip_lengths%5B%5D=one_week&location_search=MIN_MAP_BOUNDS&monthly_start_date=2025-03-01&monthly_length=3&monthly_end_date=2025-06-01&price_filter_input_type=0&channel=EXPLORE&category_tag=Tag%3A4104&search_type=category_change";
+        String actualURL = driver.getCurrentUrl();
+        assert actualURL.equals(expectedURL) : "URL did not change correctly! Expected: " + expectedURL + ", but found: " + actualURL;
+        System.out.println("URL validation passed.");
     }
 
 }
