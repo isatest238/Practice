@@ -43,7 +43,6 @@ public class Airbnb_Menu_Homework {
         //System.out.println("URL validation passed.");
 
         Assert.assertEquals(actualURL, expectedURL, "URL does not match!");
-        System.out.println("TestNG URL assertion passed.");
-    }
+       }
 
 }
