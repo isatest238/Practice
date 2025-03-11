@@ -77,32 +77,14 @@ public class Sign_In_Username_and_Password_PopUp {
         actions.sendKeys(Keys.ESCAPE).perform();
 
         Thread.sleep(2000);
-        WebElement homeScreenElement = driver.findElement(By.id("STRUCTURED-LANE-JETZT-LAUFT-IM-TV-HEADLINE"));
+        WebElement homeScreenElement = driver.findElement(By.xpath("//h2[@class='V4i7m' and span='Jetzt läuft im TV']"));
 
-        // Get the text inside the <span> tag
-        String actualText = homeScreenElement.findElement(By.tagName("span")).getText();
-
+        System.out.println(homeScreenElement.getText());
+        String actualText = homeScreenElement.getText();
         // Expected text
-        String expectedText = "Jetzt läuft im TV";
+        String expectedText = "JETZT LÄUFT IM TV ";
 
         // Assert the text
         Assert.assertEquals(actualText, expectedText, "Text verification failed!");
-
-
-
-//        WebElement goToSettingsElement = driver.findElement(By.xpath("//*[@id='MENU-USER']/i"));
-//        goToSettingsElement.click();
-//
-//        WebElement menuSettingsElement = driver.findElement(By.xpath("//a[@id='MENU-SETTINGS']"));
-//        menuSettingsElement.click();
-//        Thread.sleep(2000);
-//
-//        WebElement systemInformationenElement = driver.findElement(By.xpath("//a[@id='SETTINGS-MENU-SYSTEM']"));
-//        systemInformationenElement.click();
-//        Thread.sleep(2000);
-//
-//        //List<WebElement> systemInformationeScreenElement = driver.findElements(By.xpath("//div[@class='ahKFV']//span[@class='zPdxw']"));
-
-
     }
 }
