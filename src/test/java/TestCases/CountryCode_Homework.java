@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-//- https://letcode.in/forms - faceti un test mic in care gasiti locatori pt "Country code" si "Country"
+// https://letcode.in/forms - faceti un test mic in care gasiti locatori pt "Country code" si "Country"
 // si apoi  scrie-ti  in fieldurile respective
 
 
