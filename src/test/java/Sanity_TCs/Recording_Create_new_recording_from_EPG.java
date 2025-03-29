@@ -8,20 +8,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.time.Instant;
 
-
-public class Login_Successful {
+public class Recording_Create_new_recording_from_EPG {
     public WebDriver driver;
 
     @Test
-
-    public void Login_Successful() throws InterruptedException {
-
+    public void Create_Recording_from_EPGMethod() throws InterruptedException {
         //deschidem un Chrome browser
         driver = new ChromeDriver();
 
@@ -49,7 +44,7 @@ public class Login_Successful {
         WebElement submitElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class, 'visible-md')]//input[@name='signInSubmitButton']")));
         submitElement.click();
 
-        System.out.println("The user has successfully logged in on the MagentaTV Start Page");
+        System.out.println("User successfully on the MagentaTV Start Page");
 
 
 
@@ -87,15 +82,10 @@ public class Login_Successful {
         // Send ESC key globally
         actions.sendKeys(Keys.ESCAPE).perform();
 
-        // identify unique element from the Home Page
-        WebElement homeScreenElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@class='V4i7m' and span='Jetzt läuft im TV']")));
+        // Identify EPG icon locators and click on it
 
-        System.out.println(homeScreenElement.getText());
-        String actualText = homeScreenElement.getText();
-        // Expected text
-        String expectedText = "JETZT LÄUFT IM TV ";
 
-        // Assert the text
-        Assert.assertEquals(actualText, expectedText, "Text verification failed!");
+
+
     }
 }
