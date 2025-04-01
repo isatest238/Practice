@@ -12,11 +12,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Recording_Create_new_recording_from_EPG {
+public class Play_LiveTV_from_EPG {
     public WebDriver driver;
 
     @Test
-    public void Create_Recording_from_EPGMethod() throws InterruptedException {
+    public void Play_LiveTV_from_EPGMethod() throws InterruptedException {
         //deschidem un Chrome browser
         driver = new ChromeDriver();
 
@@ -82,9 +82,48 @@ public class Recording_Create_new_recording_from_EPG {
         // Send ESC key globally
         actions.sendKeys(Keys.ESCAPE).perform();
 
+
         // Identify EPG icon locators and click on it
+        WebElement epgIconElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='MENU-EPG']")));
+        epgIconElement.click();
 
 
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+        //close first overlay
+        WebElement firstOverlayElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//BUTTON[@ID='OVERLAY-CLOSE' and contains(@class, 'oqaYO st41f jTZzO')]")));
+        firstOverlayElement.click();
+        // close second overlay
+        WebElement secondOverlayElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//BUTTON[@ID='OVERLAY-CLOSE' and contains(@class, 'oqaYO st41f jTZzO')]")));
+        secondOverlayElement.click();
+
+        // Identify program logo and click on it (KIKA e.g)
+        WebElement kikaElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='epg_ch_262282280172']")));
+        kikaElement.click();
+
+        //take the time into a variable before starting the play
+        WebElement durationPlayerElement = driver.findElement(By.xpath("//div[@class='MRdfJ']"));
+        String startDuration = durationPlayerElement.getText();
+        System.out.println("The time before the video starts to play is " + startDuration);
+
+        //Identify play button and click on it to start playback of the stream
+        WebElement playButtonElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='PLAYER-PLAY']")));
+        playButtonElement.click();
+
+
+        // take the time into a variable after the video played 20 seconds
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(180));
+        Thread.sleep(20000);
+
+        driver.findElement(By.tagName("body")).click();
+
+        //Identify play button and click on it to pause playback of the stream
+        WebElement pauseButtonElement = driver.findElement(By.xpath("//button[@id='PLAYER-PLAY']"));
+        pauseButtonElement.click();
+
+        WebElement durationPalyerActualElement = driver.findElement(By.xpath("//div[@class='MRdfJ']"));
+        String startDurationActual = durationPalyerActualElement.getText();
+        System.out.println("The time after the played starts to play is " + startDurationActual);
 
 
     }

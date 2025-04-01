@@ -1,4 +1,4 @@
-package TestCases;
+package TotFelul;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;

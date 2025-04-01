@@ -1,4 +1,4 @@
-package TestCases;
+package TotFelul;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
